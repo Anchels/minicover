@@ -70,21 +70,6 @@ namespace MiniCover.Core.Instrumentation
 
             var assemblyDocuments = assemblyDefinition.GetAllDocuments();
 
-            var changedDocuments = assemblyDocuments.Where(d => d.FileHasChanged()).ToArray();
-            if (changedDocuments.Any())
-            {
-                if (_logger.IsEnabled(LogLevel.Debug))
-                {
-                    var changedFiles = changedDocuments.Select(d => d.Url).Distinct().ToArray();
-                    _logger.LogDebug("Source files has changed: {changedFiles}", new object[] { changedFiles });
-                }
-                else
-                {
-                    _logger.LogInformation("Source files has changed");
-                }
-                return null;
-            }
-
             var instrumentedAssembly = new InstrumentedAssembly(assemblyDefinition.Name.Name);
             var instrumentedAttributeReference = assemblyDefinition.MainModule.ImportReference(instrumentedAttributeConstructor);
             assemblyDefinition.CustomAttributes.Add(new CustomAttribute(instrumentedAttributeReference));
