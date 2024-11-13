@@ -18,7 +18,7 @@ namespace MiniCover.UnitTests.HitServices
                     "Sample.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                     "Sample.UnitTests.UnitTest1",
                     "XUnitTest2",
-                    new Dictionary<int, int>
+                    new Dictionary<int, long>
                     {
                         {17, 2500000},
                         {19, 2500000},
@@ -38,7 +38,7 @@ namespace MiniCover.UnitTests.HitServices
                 new HitContext(
                     "Sample.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                     "Sample.UnitTests.UnitTest1", "NUnitTest2",
-                    new Dictionary<int, int>
+                    new Dictionary<int, long>
                     {
                         {9, 1},
                         {10, 1},
@@ -73,7 +73,7 @@ namespace MiniCover.UnitTests.HitServices
                     "Sample.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                     "Sample.UnitTests.UnitTest1",
                     "XUnitTest2",
-                    new Dictionary<int, int>
+                    new Dictionary<int, long>
                     {
                         {8, 1},
                     }),
@@ -81,7 +81,7 @@ namespace MiniCover.UnitTests.HitServices
                     "Sample.UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                     "Sample.UnitTests.UnitTest1",
                     "XUnitTest2",
-                    new Dictionary<int, int>
+                    new Dictionary<int, long>
                     {
                         {8, 1},
                     })

@@ -13,7 +13,7 @@ namespace MiniCover.HitServices.UnitTests
         {
             var assembly = this.GetType().Assembly;
 
-            var sut = new HitContext(assembly.FullName, this.GetType().FullName, nameof(BinarySerializationShouldWork), new Dictionary<int, int> { { 1, 15 } });
+            var sut = new HitContext(assembly.FullName, this.GetType().FullName, nameof(BinarySerializationShouldWork), new Dictionary<int, long> { { 1, 15 } });
 
             byte[] data;
             using (var stream = new MemoryStream())

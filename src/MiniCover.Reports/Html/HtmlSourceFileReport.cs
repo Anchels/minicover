@@ -208,7 +208,7 @@ namespace MiniCover.Reports.Html
             }
         }
 
-        private string FormatHits(int count)
+        private string FormatHits(long count)
         {
             if (count == 1)
                 return $"{count} hit";

@@ -30,7 +30,7 @@ namespace MiniCover.Core.Hits
             return _valuesById.ContainsKey(id);
         }
 
-        public int GetHitCount(int id)
+        public long GetHitCount(int id)
         {
             if (!_valuesById.TryGetValue(id, out var values))
                 return 0;
@@ -48,7 +48,7 @@ namespace MiniCover.Core.Hits
 
         class HitValues
         {
-            public int HitCount { get; set; }
+            public long HitCount { get; set; }
             public HitContext[] Contexts { get; set; }
         }
     }
