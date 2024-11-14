@@ -23,22 +23,22 @@ namespace MiniCover.HitServices
             string assemblyName,
             string className,
             string methodName,
-            IDictionary<int, int> hits = null)
+            IDictionary<int, long> hits = null)
         {
             Id = Guid.NewGuid().ToString();
             AssemblyName = assemblyName;
             ClassName = className;
             MethodName = methodName;
             Hits = hits != null
-                ? new Dictionary<int, int>(hits)
-                : new Dictionary<int, int>();
+                ? new Dictionary<int, long>(hits)
+                : new Dictionary<int, long>();
         }
 
         public string Id { get; }
         public string AssemblyName { get; }
         public string ClassName { get; }
         public string MethodName { get; }
-        public IDictionary<int, int> Hits { get; }
+        public IDictionary<int, long> Hits { get; }
 
         public void RecordHit(int id)
         {
@@ -52,7 +52,7 @@ namespace MiniCover.HitServices
             }
         }
 
-        public int GetHitCount(int id)
+        public long GetHitCount(int id)
         {
             if (!Hits.TryGetValue(id, out var count))
                 return 0;
@@ -60,7 +60,7 @@ namespace MiniCover.HitServices
             return count;
         }
 
-        public static IEnumerable<HitContext> MergeDuplicates(IEnumerable<HitContext> source)
+	public static IEnumerable<HitContext> MergeDuplicates(IEnumerable<HitContext> source)
         {
             return source
                 .GroupBy(h => new { h.AssemblyName, h.ClassName, h.MethodName })
@@ -120,7 +120,7 @@ namespace MiniCover.HitServices
             var methodName = binaryReader.ReadString();
             var assemblyName = binaryReader.ReadString();
             var hitsCount = binaryReader.ReadInt32();
-            var hits = new Dictionary<int, int>();
+            var hits = new Dictionary<int, long>();
             for (int i = 0; i < hitsCount; i++)
             {
                 var instructionId = binaryReader.ReadInt32();
