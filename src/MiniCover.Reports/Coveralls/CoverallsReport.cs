@@ -112,8 +112,8 @@ namespace MiniCover.Reports.Coveralls
                     Coverage = Enumerable.Range(1, sourceLines.Length).Select(line =>
                     {
                         return hitsPerLine.ContainsKey(line)
-		            ? (int?)hitsPerLine[line] 
-		            : null;
+                            ? hitsPerLine[line]
+                            : default(int?);
                     }).ToArray()
                 };
 
